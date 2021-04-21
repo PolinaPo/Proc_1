@@ -5,17 +5,17 @@
 using namespace std;
 
 namespace type_plants {
-	// Значение месяца цветения кустарников
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	enum month { JAN, FEB, MAR, APR, MAY, JUNE, JULY, AUG, SEPT, OCT, NOV, DEC };
 
-	// Значения видов цветов
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 	enum view { DOMESTIC, GARDEN, WILD };
 
 	struct tree {
 		long age;
 	};
 
-	// структура, обощающая все растения
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	struct plants {
 		enum type { TREE, BASH, FLOWER };
 		type key;
@@ -30,10 +30,10 @@ namespace type_plants {
 		month m;
 	};
 
-	// Цветы 
+	// пїЅпїЅпїЅпїЅпїЅ 
 	struct flower	
 	{
-		view flower_view;	// вид
+		view flower_view;	
 	};
 
 	bash* bash_Input(ifstream& ifst);
