@@ -80,6 +80,11 @@ namespace type_plants {
 			cout << "Cannot to output plants!" << endl;
 			return false;
 		}
+		else
+		{
+			ofst << "The number of consonants in the name: " << number_consonants(currentNode->info) << "." << endl;
+			return true;
+		}
 	}
 
 	struct node* get_node(struct node* head, int index) {
@@ -116,12 +121,12 @@ namespace type_plants {
 
 	bool plants_Output(struct plants* plants, ofstream& ofst) {
 		if (plants->key == plants::type::TREE) {
-			ofst << "Tree name: " << plants->name << "," << "\n";
+			ofst << "\nTree name: " << plants->name << "," << "\n";
 			tree_Output((tree*)plants->plants, ofst);
 			return true;
 		}
 		else if (plants->key == plants::type::BASH) {
-			ofst << "Bash name: " << plants->name << "," << "\n";
+			ofst << "\nBash name: " << plants->name << "," << "\n";
 			bash_Output((bash*)plants->plants, ofst);
 			return true;
 		}
@@ -141,5 +146,23 @@ namespace type_plants {
 
 	void bash_Output(struct bash* bash, ofstream& ofst) {
 		ofst << "Mounth: " << bash->m << "." << endl;
+	}
+
+	// Количество согласных букв в названии растения (целое число)
+	int number_consonants(struct plants* plants)
+	{
+		string consonants = "BbCcDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz";
+		int sum = 0;
+		for (unsigned i = 0; i < plants->name.length(); i++)
+		{
+			for (unsigned j = 0; j < consonants.length(); j++)
+			{
+				if (plants->name[i] == consonants[j])
+				{
+					sum++;
+				}
+			}
+		}
+		return sum;
 	}
 }
