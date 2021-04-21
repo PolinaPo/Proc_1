@@ -8,13 +8,16 @@ namespace type_plants {
 	// «начение мес€ца цветени€ кустарников
 	enum month { JAN, FEB, MAR, APR, MAY, JUNE, JULY, AUG, SEPT, OCT, NOV, DEC };
 
+	// «начени€ видов цветов
+	enum view { DOMESTIC, GARDEN, WILD };
+
 	struct tree {
 		long age;
 	};
 
 	// структура, обощающа€ все растени€
 	struct plants {
-		enum type { TREE, BASH };
+		enum type { TREE, BASH, FLOWER };
 		type key;
 		string name;
 		void* plants;
@@ -27,11 +30,20 @@ namespace type_plants {
 		month m;
 	};
 
+	// ÷веты 
+	struct flower	
+	{
+		view flower_view;	// вид
+	};
+
 	bash* bash_Input(ifstream& ifst);
 	void bash_Output(struct bash* bash, ofstream& ofst);
 
 	tree* tree_Input(ifstream& ifst);
 	void tree_Output(struct tree* tree, ofstream& ofst);
+
+	flower* flower_Input(ifstream& ifst);
+	void flower_Output(struct flower* flower, ofstream& ofst);
 
 	struct node {
 		plants* info;

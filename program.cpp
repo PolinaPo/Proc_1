@@ -108,6 +108,12 @@ namespace type_plants {
 			ifst >> newObj->name;
 			newObj->key = plants::type::BASH;
 			break;
+		case 3:												
+			newObj = new plants;
+			newObj->plants = flower_Input(ifst);
+			ifst >> newObj->name;
+			newObj->key = plants::type::FLOWER;
+			break;
 		default:
 			return 0;
 		}
@@ -116,13 +122,19 @@ namespace type_plants {
 
 	bool plants_Output(struct plants* plants, ofstream& ofst) {
 		if (plants->key == plants::type::TREE) {
-			ofst << "Tree name: " << plants->name << "," << "\n";
+			ofst << "\nTree name: " << plants->name << "," << "\n";
 			tree_Output((tree*)plants->plants, ofst);
 			return true;
 		}
 		else if (plants->key == plants::type::BASH) {
-			ofst << "Bash name: " << plants->name << "," << "\n";
+			ofst << "\nBash name: " << plants->name << "," << "\n";
 			bash_Output((bash*)plants->plants, ofst);
+			return true;
+		}
+		else if (plants->key == plants::type::FLOWER)
+		{
+			ofst << "\nFlower name: " << plants->name << "," << "\n";
+			flower_Output((flower*)plants->plants, ofst);
 			return true;
 		}
 		else {
@@ -141,5 +153,20 @@ namespace type_plants {
 
 	void bash_Output(struct bash* bash, ofstream& ofst) {
 		ofst << "Mounth: " << bash->m << "." << endl;
+	}
+
+	// ввод параметров цветов из файла					
+	flower* flower_Input(ifstream& ifst)
+	{
+		flower* newObj = new flower();
+		int f_view;
+		ifst >> f_view;
+		newObj->flower_view = view(f_view);
+		return newObj;
+	}
+	// вывод параметров цветов в форматируемый поток		
+	void flower_Output(struct flower* flower, ofstream& ofst)
+	{
+		ofst << "View: " << flower->flower_view + 1 << "." << endl;
 	}
 }
