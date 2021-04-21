@@ -1,0 +1,12 @@
+Container contains 5 elements.
+Tree name: topol,
+Tree age: 456.
+Bash name: ryabina,
+Mounth: 5.
+Bash name: cheremuha,
+Mounth: 7.
+Tree name: bereza,
+Tree age: 3.
+Tree name: klen,
+Tree age: 33.
+
