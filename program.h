@@ -51,6 +51,10 @@ namespace type_plants {
 	bool node_Add(struct container* currentList, ifstream& ifst);
 	bool node_Output(struct node* headNode, int pos, ofstream& ofst);
 	struct node* get_node(struct node* head, int index);
+
+	// Вывод только деревьев
+	void Output_only_tree(struct container* list, ofstream& ofst);
+
 } // end type_plants namespace
 #endif // PROGRAM_H
 
