@@ -92,6 +92,7 @@ namespace type_plants {
 
 	plants* plants_Input(ifstream& ifst) {
 		plants* newObj;
+		int place_plant = 0;	
 		string k;
 		getline(ifst, k);
 		switch (atoi(k.c_str()))
@@ -100,12 +101,16 @@ namespace type_plants {
 			newObj = new plants;
 			newObj->plants = tree_Input(ifst);
 			ifst >> newObj->name;
+			ifst >> place_plant;	
+			newObj->place_growth = place(place_plant);	
 			newObj->key = plants::type::TREE;
 			break;
 		case 2:
 			newObj = new plants;
 			newObj->plants = bash_Input(ifst);
 			ifst >> newObj->name;
+			ifst >> place_plant;
+			newObj->place_growth = place(place_plant);
 			newObj->key = plants::type::BASH;
 			break;
 		default:
@@ -116,12 +121,12 @@ namespace type_plants {
 
 	bool plants_Output(struct plants* plants, ofstream& ofst) {
 		if (plants->key == plants::type::TREE) {
-			ofst << "Tree name: " << plants->name << "," << "\n";
+			ofst << "\nTree name: " << plants->name << "," << "\n" << "Place of growth: " << plants->place_growth + 1 << "," << endl;
 			tree_Output((tree*)plants->plants, ofst);
 			return true;
 		}
 		else if (plants->key == plants::type::BASH) {
-			ofst << "Bash name: " << plants->name << "," << "\n";
+			ofst << "\nBash name: " << plants->name << "," << "\n" << "Place of growth: " << plants->place_growth + 1 << "," << endl;
 			bash_Output((bash*)plants->plants, ofst);
 			return true;
 		}

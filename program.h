@@ -8,6 +8,9 @@ namespace type_plants {
 	// «начение мес€ца цветени€ кустарников
 	enum month { JAN, FEB, MAR, APR, MAY, JUNE, JULY, AUG, SEPT, OCT, NOV, DEC };
 
+	// «начени€ мест произрастани€ растений
+	enum place { TUNDRA, DESERT, STEPPE, TAIGA, MIXED_FOREST, MOUNTAINS };
+
 	struct tree {
 		long age;
 	};
@@ -17,6 +20,7 @@ namespace type_plants {
 		enum type { TREE, BASH };
 		type key;
 		string name;
+		place place_growth; //место произрастани€
 		void* plants;
 	};
 

@@ -1,12 +1,22 @@
 Container contains 5 elements.
+
 Tree name: topol,
+Place of growth: 4,
 Tree age: 456.
+
 Bash name: ryabina,
+Place of growth: 5,
 Mounth: 5.
+
 Bash name: cheremuha,
+Place of growth: 3,
 Mounth: 7.
+
 Tree name: bereza,
+Place of growth: 3,
 Tree age: 3.
+
 Tree name: klen,
+Place of growth: 2,
 Tree age: 33.
 
