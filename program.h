@@ -55,6 +55,11 @@ namespace type_plants {
 	// Количество согласных букв в названии растения (целое число)
 	int number_consonants(struct plants* plants);
 
+	// Сортировка содержимого контейнера
+	void sort(container* list);
+	// Cравнение ключей двух программных объектов
+	bool compare(struct plants* first, struct plants* second);
+
 } // end type_plants namespace
 #endif // PROGRAM_H
 

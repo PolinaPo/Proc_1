@@ -27,6 +27,8 @@ int main(int argc, char const* argv[])
     container_Init(c);
     container_Fill(c, ifst);
     cout << "Filled container" << endl;
+    sort(c);
+    cout << "Sorted container" << endl;
     container_Output(c, ofst);
     cout << "Output container" << endl;
     ofst << endl;

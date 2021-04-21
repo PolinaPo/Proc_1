@@ -165,4 +165,34 @@ namespace type_plants {
 		}
 		return sum;
 	}
+
+	// Cравнение ключей двух программных объектов
+	bool compare(struct plants* first, struct plants* second)
+	{
+		return number_consonants(first) > number_consonants(second); // в порядке неубывания 
+	}
+
+	// Сортировка содержимого контейнера
+	void sort(container* list)
+	{
+		node* left = list->head;
+		node* right = list->head->next;
+
+		node* temp = new node;
+		for (int i = 0; i < list->size - 1; i++)
+		{
+			for (int j = i + 1; j < list->size; j++)
+			{
+				if (compare(left->info, right->info))
+				{
+					temp->info = left->info;
+					left->info = right->info;
+					right->info = temp->info;
+				}
+				right = right->next;
+			}
+			left = left->next;
+			right = left->next;
+		}
+	}
 }
