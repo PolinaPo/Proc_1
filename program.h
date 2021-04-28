@@ -7,39 +7,11 @@ using namespace std;
 namespace type_plants
 {
 	// Значение месяца цветения кустарников
-	enum month
-	{
-		JAN,
-		FEB,
-		MAR,
-		APR,
-		MAY,
-		JUNE,
-		JULY,
-		AUG,
-		SEPT,
-		OCT,
-		NOV,
-		DEC
-	};
-
+	enum month { JAN, FEB, MAR, APR, MAY, JUNE, JULY, AUG, SEPT, OCT, NOV, DEC };
 	// Значения видов цветов
-	enum view
-	{
-		DOMESTIC,
-		GARDEN,
-		WILD
-	};
+	enum view { DOMESTIC, GARDEN, WILD };
 	// Значения мест произрастания растений
-	enum place
-	{
-		TUNDRA,
-		DESERT,
-		STEPPE,
-		TAIGA,
-		MIXED_FOREST,
-		MOUNTAINS
-	};
+	enum place { TUNDRA, DESERT, STEPPE, TAIGA, MIXED_FOREST, MOUNTAINS };
 
 	struct tree
 	{
@@ -49,12 +21,7 @@ namespace type_plants
 	// структура, обощающая все имеющиеся растения
 	struct plants
 	{
-		enum type
-		{
-			TREE,
-			BASH,
-			FLOWER
-		};
+		enum type { TREE, BASH, FLOWER };
 		type key;
 		string name;
 		place place_growth; 
@@ -112,7 +79,7 @@ namespace type_plants
 
 	// Сортировка содержимого контейнера
 	void sort(container *list);
-	// Cравнение ключей двух программных объекто
+	// Cравнение ключей двух программных объектов
 	bool compare(struct plants *first, struct plants *second);
 
 } // end type_plants namespace
