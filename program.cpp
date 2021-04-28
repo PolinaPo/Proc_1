@@ -258,3 +258,29 @@ namespace type_plants
 			}
 		}
 	}
+	// ����� ������ ��������
+	void Output_only_tree(struct container *list, ofstream &ofst)
+	{
+		node *curNode;
+		ofst << "Only tree." << endl;
+		for (int i = 0; i < list->size; i++)
+		{
+
+			curNode = list->head;
+			for (int j = 0; j < i; j++)
+			{
+				curNode = curNode->next;
+			}
+			if (curNode->info->key == plants::type::TREE)
+			{
+				if (!node_Output(list->head, i, ofst))
+				{
+					cout << "|Node #" << i << " is broken!|" << endl;
+					ofst << "Node is broken!" << endl;
+				}
+			}
+			else
+				ofst << endl;
+		}
+	}
+}
