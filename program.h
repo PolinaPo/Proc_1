@@ -5,17 +5,17 @@
 using namespace std;
 
 namespace type_plants {
-	// �������� ������ �������� �����������
+	// Значение месяца цветения кустарников
 	enum month { JAN, FEB, MAR, APR, MAY, JUNE, JULY, AUG, SEPT, OCT, NOV, DEC };
 
-	// �������� ����� ������
+	// Значения видов цветов
 	enum view { DOMESTIC, GARDEN, WILD };
 
 	struct tree {
 		long age;
 	};
 
-	// ���������, ��������� ��� ��������
+	// структура, обощающая все имеющиеся растения
 	struct plants {
 		enum type { TREE, BASH, FLOWER };
 		type key;
@@ -30,7 +30,6 @@ namespace type_plants {
 		month m;
 	};
 
-	// ����� 
 	struct flower	
 	{
 		view flower_view;	
