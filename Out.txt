@@ -1,20 +1,22 @@
-Container contains 6 elements.
-
-Flower name: Rosa,
-View: 3.
+Container contains 5 elements.
 
 Tree name: topol,
 Tree age: 456.
-
-Bash name: ryabina,
-Mounth: 5.
-
-Bash name: cheremuha,
-Mounth: 7.
+The number of consonants in the name: 3.
 
 Tree name: bereza,
 Tree age: 3.
+The number of consonants in the name: 3.
 
 Tree name: klen,
 Tree age: 33.
+The number of consonants in the name: 3.
+
+Bash name: ryabina,
+Mounth: 5.
+The number of consonants in the name: 4.
+
+Bash name: cheremuha,
+Mounth: 7.
+The number of consonants in the name: 5.
 
