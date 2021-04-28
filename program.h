@@ -63,6 +63,10 @@ namespace type_plants {
 	bool node_Add(struct container* currentList, ifstream& ifst);
 	bool node_Output(struct node* headNode, int pos, ofstream& ofst);
 	struct node* get_node(struct node* head, int index);
+
+	// Количество согласных букв в названии растения (целое число)
+	int number_consonants(struct plants* plants);
+
 } // end type_plants namespace
 #endif // PROGRAM_H
 
