@@ -6,7 +6,7 @@ using namespace std;
 
 namespace type_plants
 {
-	// �������� ������ �������� �����������
+	// Значение месяца цветения кустарников
 	enum month
 	{
 		JAN,
@@ -23,14 +23,14 @@ namespace type_plants
 		DEC
 	};
 
-	// �������� ����� ������
+	// Значения видов цветов
 	enum view
 	{
 		DOMESTIC,
 		GARDEN,
 		WILD
 	};
-	// �������� ���� ������������� ��������
+	// Значения мест произрастания растений
 	enum place
 	{
 		TUNDRA,
@@ -46,7 +46,7 @@ namespace type_plants
 		long age;
 	};
 
-	// ���������, ��������� ��� ��������
+	// структура, обощающая все имеющиеся растения
 	struct plants
 	{
 		enum type
@@ -57,7 +57,7 @@ namespace type_plants
 		};
 		type key;
 		string name;
-		place place_growth; //����� �������������
+		place place_growth; 
 		void *plants;
 	};
 
@@ -69,7 +69,6 @@ namespace type_plants
 		month m;
 	};
 
-	// �����
 	struct flower
 	{
 		view flower_view;
@@ -105,19 +104,16 @@ namespace type_plants
 	bool node_Output(struct node *headNode, int pos, ofstream &ofst);
 	struct node *get_node(struct node *head, int index);
 
-	// ����� ������ ��������
+	// Вывод только деревьев
 	void Output_only_tree(struct container *list, ofstream &ofst);
 
-} // end type_plants namespace
-#endif // PROGRAM_H
+	// Количество согласных букв в названии растения (целое число)
+	int number_consonants(struct plants *plants);
 
-// ���������� ��������� ���� � �������� �������� (����� �����)
-int number_consonants(struct plants *plants);
-
-// ���������� ����������� ����������
-void sort(container *list);
-// C�������� ������ ���� ����������� ��������
-bool compare(struct plants *first, struct plants *second);
+	// Сортировка содержимого контейнера
+	void sort(container *list);
+	// Cравнение ключей двух программных объекто
+	bool compare(struct plants *first, struct plants *second);
 
 } // end type_plants namespace
 #endif // PROGRAM_H

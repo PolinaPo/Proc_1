@@ -65,7 +65,7 @@ namespace type_plants
 
 	void tree_Output(struct tree *tree, ofstream &ofst)
 	{
-		ofst << "Tree age: " << tree->age << "." << endl;
+		ofst << "Age: " << tree->age << "," << endl;
 	}
 
 	bool node_Add(struct container *currentList, ifstream &ifst)
@@ -143,6 +143,8 @@ namespace type_plants
 			newObj = new plants;
 			newObj->plants = flower_Input(ifst);
 			ifst >> newObj->name;
+			ifst >> place_plant;	
+			newObj->place_growth = place(place_plant);
 			newObj->key = plants::type::FLOWER;
 			break;
 		default:
@@ -155,25 +157,23 @@ namespace type_plants
 	{
 		if (plants->key == plants::type::TREE)
 		{
-			ofst << "\nTree name: " << plants->name << ","
-					 << "\n"
-					 << "Place of growth: " << plants->place_growth + 1 << "," << endl;
+			ofst << "\nTree name: " << plants->name << "," << "\n"
+				 << "Place of growth: " << plants->place_growth + 1 << "," << endl;
 			tree_Output((tree *)plants->plants, ofst);
 			return true;
 		}
 		else if (plants->key == plants::type::BASH)
 		{
-			ofst << "\nBash name: " << plants->name << ","
-					 << "\n"
-					 << "Place of growth: " << plants->place_growth + 1 << "," << endl;
+			ofst << "\nBash name: " << plants->name << "," << "\n"
+				 << "Place of growth: " << plants->place_growth + 1 << "," << endl;
 			bash_Output((bash *)plants->plants, ofst);
 			return true;
 		}
 		else if (plants->key == plants::type::FLOWER)
 		{
-			ofst << "\nFlower name: " << plants->name << ","
-					 << "\n";
-			flower_Output((flower *)plants->plants, ofst);
+			ofst << "\nFlower name: " << plants->name << "," << "\n" 
+				 << "Place of growth: " << plants->place_growth + 1 << "," << endl;
+			flower_Output((flower*)plants->plants, ofst);
 			return true;
 		}
 		else
@@ -194,10 +194,9 @@ namespace type_plants
 
 	void bash_Output(struct bash *bash, ofstream &ofst)
 	{
-		ofst << "Mounth: " << bash->m << "." << endl;
+		ofst << "Mounth: " << bash->m + 1 << "," << endl;
 	}
 
-	// ���� ���������� ������ �� �����
 	flower *flower_Input(ifstream &ifst)
 	{
 		flower *newObj = new flower();
@@ -206,59 +205,61 @@ namespace type_plants
 		newObj->flower_view = view(f_view);
 		return newObj;
 	}
-	// ����� ���������� ������ � ������������� �����
-	void flower_Output(struct flower *flower, ofstream &ofst)
+	
+	void flower_Output(struct flower* flower, ofstream& ofst)
 	{
-		ofst << "View: " << flower->flower_view + 1 << "." << endl;
-		// ���������� ��������� ���� � �������� �������� (����� �����)
-		int number_consonants(struct plants * plants)
+		ofst << "View: " << flower->flower_view + 1 << "," << endl;
+	}
+
+	// Количество согласных букв в названии растения (целое число)
+	int number_consonants(struct plants * plants)
+	{
+		string consonants = "BbCcDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz";
+		int sum = 0;
+		for (unsigned i = 0; i < plants->name.length(); i++)
 		{
-			string consonants = "BbCcDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz";
-			int sum = 0;
-			for (unsigned i = 0; i < plants->name.length(); i++)
+			for (unsigned j = 0; j < consonants.length(); j++)
 			{
-				for (unsigned j = 0; j < consonants.length(); j++)
+				if (plants->name[i] == consonants[j])
 				{
-					if (plants->name[i] == consonants[j])
-					{
-						sum++;
-					}
+					sum++;
 				}
 			}
-			return sum;
 		}
+		return sum;
+	}
 
-		// C�������� ������ ���� ����������� ��������
-		bool compare(struct plants * first, struct plants * second)
+	// Cравнение ключей двух программных объектов
+	bool compare(struct plants * first, struct plants * second)
+	{
+		return number_consonants(first) > number_consonants(second);
+	}
+
+	// Сортировка содержимого контейнера
+	void sort(container * list)
+	{
+		node *left = list->head;
+		node *right = list->head->next;
+
+		node *temp = new node;
+		for (int i = 0; i < list->size - 1; i++)
 		{
-			return number_consonants(first) > number_consonants(second); // � ������� ����������
-		}
-
-		// ���������� ����������� ����������
-		void sort(container * list)
-		{
-			node *left = list->head;
-			node *right = list->head->next;
-
-			node *temp = new node;
-			for (int i = 0; i < list->size - 1; i++)
+			for (int j = i + 1; j < list->size; j++)
 			{
-				for (int j = i + 1; j < list->size; j++)
+				if (compare(left->info, right->info))
 				{
-					if (compare(left->info, right->info))
-					{
-						temp->info = left->info;
-						left->info = right->info;
-						right->info = temp->info;
-					}
-					right = right->next;
+					temp->info = left->info;
+					left->info = right->info;
+					right->info = temp->info;
 				}
-				left = left->next;
-				right = left->next;
+				right = right->next;
 			}
+			left = left->next;
+			right = left->next;
 		}
 	}
-	// ����� ������ ��������
+	
+	// Вывод только деревьев
 	void Output_only_tree(struct container *list, ofstream &ofst)
 	{
 		node *curNode;
@@ -280,7 +281,9 @@ namespace type_plants
 				}
 			}
 			else
+			{
 				ofst << endl;
+			}
 		}
 	}
 }
