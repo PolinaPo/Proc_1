@@ -18,6 +18,17 @@ ryabina
 456
 topol
 
+<<<<<<< Updated upstream
 3
 2
 Rosa
+=======
+1
+2000
+sekvoya
+
+2
+4
+malina
+
+>>>>>>> Stashed changes

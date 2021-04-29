@@ -1,8 +1,16 @@
+<<<<<<< Updated upstream
 Container contains 6 elements.
 
 Flower name: Rosa,
 View: 3.
 
+=======
+Container contains 7 elements.
+Bash name: malina,
+Mounth: 4.
+Tree name: sekvoya,
+Tree age: 2000.
+>>>>>>> Stashed changes
 Tree name: topol,
 Tree age: 456.
 
