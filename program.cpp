@@ -4,7 +4,6 @@
 
 namespace type_plants
 {
-
 	void container_Init(container *list)
 	{
 		list->size = 0;
@@ -28,7 +27,9 @@ namespace type_plants
 
 	void container_Fill(struct container *list, ifstream &ifst)
 	{
-		if (ifst.peek() == EOF) {
+		// Проверка файла на пустоту
+		if (ifst.peek() == EOF) 
+		{
 			cout << "Error, Fail empty!" << endl;
 			exit(1);
 		}
@@ -65,7 +66,9 @@ namespace type_plants
 	{
 		tree *newObj = new tree();
 		ifst >> newObj->age;
-		if (newObj < 0) {
+		// Проверка, возраст дерева должен быть положительным числом
+		if (newObj < 0) 
+		{
 			cout << "Error, Age cannot be negative!" << endl;
 			exit(1);
 		}
@@ -101,7 +104,7 @@ namespace type_plants
 
 	bool node_Output(struct node *headNode, int pos, ofstream &ofst)
 	{
-		node *currentNode = get_node(headNode, pos);
+		node *currentNode = get_Node(headNode, pos);
 		if (!plants_Output(currentNode->info, ofst))
 		{
 			cout << "Cannot to output plants!" << endl;
@@ -109,12 +112,12 @@ namespace type_plants
 		}
 		else
 		{
-			ofst << "The number of consonants in the name: " << number_consonants(currentNode->info) << "." << endl;
+			ofst << "The number of consonants in the name: " << number_Consonants(currentNode->info) << "." << endl;
 			return true;
 		}
 	}
 
-	struct node *get_node(struct node *head, int index)
+	struct node *get_Node(struct node *head, int index)
 	{
 		struct node *curNode = head;
 		for (int i = 0; i < index; i++)
@@ -128,8 +131,6 @@ namespace type_plants
 	{
 		plants *newObj;
 		int place_plant = 0;
-		//string k;
-		//getline(ifst, k);
 		int k;
 		ifst >> k;
 		// Проверка на правильно введенный ключ
@@ -229,7 +230,8 @@ namespace type_plants
 		int mnth;
 		ifst >> mnth;
 		// Проверка правильно введенного месяца цветения (число от 0 до 11)
-		if (mnth < 0 || mnth > 11) {
+		if (mnth < 0 || mnth > 11) 
+		{
 			cout << "Error, month must be between 0 and 11!" << endl;
 			exit(1);
 		}
@@ -263,7 +265,7 @@ namespace type_plants
 	}
 
 	// Количество согласных букв в названии растения (целое число)
-	int number_consonants(struct plants * plants)
+	int number_Consonants(struct plants * plants)
 	{
 		string consonants = "BbCcDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz";
 		int sum = 0;
@@ -281,13 +283,13 @@ namespace type_plants
 	}
 
 	// Cравнение ключей двух программных объектов
-	bool compare(struct plants * first, struct plants * second)
+	bool Compare(struct plants * first, struct plants * second)
 	{
-		return number_consonants(first) > number_consonants(second);
+		return number_Consonants(first) > number_Consonants(second);
 	}
 
 	// Сортировка содержимого контейнера
-	void sort(container * list)
+	void Sort(container * list)
 	{
 		node *left = list->head;
 		node *right = list->head->next;
@@ -297,7 +299,7 @@ namespace type_plants
 		{
 			for (int j = i + 1; j < list->size; j++)
 			{
-				if (compare(left->info, right->info))
+				if (Compare(left->info, right->info))
 				{
 					temp->info = left->info;
 					left->info = right->info;

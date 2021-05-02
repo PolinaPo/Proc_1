@@ -69,18 +69,18 @@ namespace type_plants
 
 	bool node_Add(struct container *currentList, ifstream &ifst);
 	bool node_Output(struct node *headNode, int pos, ofstream &ofst);
-	struct node *get_node(struct node *head, int index);
+	struct node *get_Node(struct node *head, int index);
 
 	// Вывод только деревьев
 	void Output_only_tree(struct container *list, ofstream &ofst);
 
 	// Количество согласных букв в названии растения (целое число)
-	int number_consonants(struct plants *plants);
+	int number_Consonants(struct plants *plants);
 
 	// Сортировка содержимого контейнера
-	void sort(container *list);
+	void Sort(container *list);
 	// Cравнение ключей двух программных объектов
-	bool compare(struct plants *first, struct plants *second);
+	bool Compare(struct plants *first, struct plants *second);
 
 } // end type_plants namespace
 #endif // PROGRAM_H

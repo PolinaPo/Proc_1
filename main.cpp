@@ -18,15 +18,18 @@ int main(int argc, char const *argv[])
     ifstream ifst(argv[1]);
 
     // Проверка на количество строк в входном файле
-    if (ifst.is_open()) {
+    if (ifst.is_open()) 
+    {
         int count_string = 0;
-        while (ifst.ignore(numeric_limits<streamsize>::max(), '\n')) {
+        while (ifst.ignore(numeric_limits<streamsize>::max(), '\n')) 
+        {
             if (!ifst.eof()) // если в конце последней строки '\n', иначе не нужно
                 count_string++;
         }
         count_string = count_string + 1;
         cout << "Count = " << count_string << endl;
-        if (count_string % 4 != 0 && count_string != 1) {
+        if (count_string % 4 != 0 && count_string != 1) 
+        {
             cout << "Error, Insufficient input data!" << endl;
             exit(1);
         }
@@ -47,7 +50,7 @@ int main(int argc, char const *argv[])
     container_Init(c);
     container_Fill(c, ifst);
     cout << "Filled container" << endl;
-    sort(c);
+    Sort(c);
     cout << "Sorted container" << endl;
     container_Output(c, ofst);
     cout << "Output container" << endl;
