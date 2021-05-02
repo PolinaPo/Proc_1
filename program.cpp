@@ -28,6 +28,11 @@ namespace type_plants
 
 	void container_Fill(struct container *list, ifstream &ifst)
 	{
+		if (ifst.peek() == EOF) {
+			cout << "Error, Fail empty!" << endl;
+			exit(1);
+		}
+
 		while (!ifst.eof())
 		{
 			if (node_Add(list, ifst))
@@ -60,6 +65,10 @@ namespace type_plants
 	{
 		tree *newObj = new tree();
 		ifst >> newObj->age;
+		if (newObj < 0) {
+			cout << "Error, Age cannot be negative!" << endl;
+			exit(1);
+		}
 		return newObj;
 	}
 
@@ -119,15 +128,34 @@ namespace type_plants
 	{
 		plants *newObj;
 		int place_plant = 0;
-		string k;
-		getline(ifst, k);
-		switch (atoi(k.c_str()))
+		//string k;
+		//getline(ifst, k);
+		int k;
+		ifst >> k;
+		// Проверка на правильно введенный ключ
+		if (ifst.eof()) 
+		{
+			return 0;
+		}
+		if (k < 1 || k > 3) 
+		{
+			cout << "Error, the key must be a value between 1 and 3!" << endl;
+			exit(1);
+		}
+
+		switch (k)
 		{
 		case 1:
 			newObj = new plants;
 			newObj->plants = tree_Input(ifst);
 			ifst >> newObj->name;
 			ifst >> place_plant;
+			// Проверка правильно введенного места произрастания (число от 0 до 5)
+			if (place_plant < 0 || place_plant > 5) 
+			{
+				cout << "Error, The place of growth should take a value from 0 to 5!" << endl;
+				exit(1);
+			}
 			newObj->place_growth = place(place_plant);
 			newObj->key = plants::type::TREE;
 			break;
@@ -136,6 +164,12 @@ namespace type_plants
 			newObj->plants = bash_Input(ifst);
 			ifst >> newObj->name;
 			ifst >> place_plant;
+			// Проверка правильно введенного места произрастания (число от 0 до 5)
+			if (place_plant < 0 || place_plant > 5)
+			{
+				cout << "Error, The place of growth should take a value from 0 to 5!" << endl;
+				exit(1);
+			}
 			newObj->place_growth = place(place_plant);
 			newObj->key = plants::type::BASH;
 			break;
@@ -144,6 +178,12 @@ namespace type_plants
 			newObj->plants = flower_Input(ifst);
 			ifst >> newObj->name;
 			ifst >> place_plant;	
+			// Проверка правильно введенного места произрастания (число от 0 до 5)
+			if (place_plant < 0 || place_plant > 5)
+			{
+				cout << "Error, The place of growth should take a value from 0 to 5!" << endl;
+				exit(1);
+			}
 			newObj->place_growth = place(place_plant);
 			newObj->key = plants::type::FLOWER;
 			break;
@@ -188,6 +228,11 @@ namespace type_plants
 		bash *newObj = new bash();
 		int mnth;
 		ifst >> mnth;
+		// Проверка правильно введенного месяца цветения (число от 0 до 11)
+		if (mnth < 0 || mnth > 11) {
+			cout << "Error, month must be between 0 and 11!" << endl;
+			exit(1);
+		}
 		newObj->m = month(mnth);
 		return newObj;
 	}
@@ -202,6 +247,12 @@ namespace type_plants
 		flower *newObj = new flower();
 		int f_view;
 		ifst >> f_view;
+		// Проверка правильно введенного значения вида цветка (число от 0 до 2)
+		if (f_view < 0 || f_view > 2) 
+		{
+			cout << "Error, view must be between 0 and 2!" << endl;
+			exit(1);
+		}
 		newObj->flower_view = view(f_view);
 		return newObj;
 	}
@@ -282,7 +333,7 @@ namespace type_plants
 			}
 			else
 			{
-				ofst << endl;
+				ofst << "";
 			}
 		}
 	}

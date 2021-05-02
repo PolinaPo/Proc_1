@@ -1,13 +1,13 @@
 Container contains 6 elements.
 
 Flower name: Rosa,
-Place of growth: 1,
+Place of growth: 6,
 View: 3,
 The number of consonants in the name: 2.
 
 Tree name: topol,
 Place of growth: 3,
-Age: 456,
+Age: 478,
 The number of consonants in the name: 3.
 
 Tree name: bereza,
@@ -27,15 +27,14 @@ The number of consonants in the name: 4.
 
 Bash name: cheremuha,
 Place of growth: 2,
-Mounth: 8,
+Mounth: 12,
 The number of consonants in the name: 5.
 
 Only tree.
 
-
 Tree name: topol,
 Place of growth: 3,
-Age: 456,
+Age: 478,
 The number of consonants in the name: 3.
 
 Tree name: bereza,
@@ -47,5 +46,3 @@ Tree name: klen,
 Place of growth: 2,
 Age: 33,
 The number of consonants in the name: 3.
-
-
