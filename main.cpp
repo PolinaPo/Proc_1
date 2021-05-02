@@ -29,10 +29,12 @@ int main(int argc, char const *argv[])
     container_Init(c);
     container_Fill(c, ifst);
     cout << "Filled container" << endl;
+    container_Output(c, ofst);
+    cout << "Output container" << endl;
     sort(c);
     cout << "Sorted container" << endl;
     container_Output(c, ofst);
-    cout << "Output container" << endl;
+    cout << "Output sorted container" << endl;
     ofst << endl;
 
     Output_only_tree(c, ofst);
