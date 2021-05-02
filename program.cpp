@@ -280,10 +280,6 @@ namespace type_plants
 					ofst << "Node is broken!" << endl;
 				}
 			}
-			else
-			{
-				ofst << endl;
-			}
 		}
 	}
 }

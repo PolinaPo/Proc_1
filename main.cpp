@@ -32,11 +32,12 @@ int main(int argc, char const *argv[])
     container_Output(c, ofst);
     cout << "Output container" << endl;
     sort(c);
+    ofst << "\nSorted" << endl;
     cout << "Sorted container" << endl;
     container_Output(c, ofst);
     cout << "Output sorted container" << endl;
     ofst << endl;
-
+    ofst << "Filtered" << endl;
     Output_only_tree(c, ofst);
     cout << "Output of trees only" << endl;
 

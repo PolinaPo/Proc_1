@@ -29,6 +29,8 @@ Tree name: klen,
 Place of growth: 2,
 Age: 33,
 The number of consonants in the name: 3.
+
+Sorted
 Container contains 6 elements.
 
 Flower name: Rosa,
@@ -61,8 +63,8 @@ Place of growth: 2,
 Mounth: 8,
 The number of consonants in the name: 5.
 
+Filtered
 Only tree.
-
 
 Tree name: topol,
 Place of growth: 3,
@@ -78,5 +80,3 @@ Tree name: klen,
 Place of growth: 2,
 Age: 33,
 The number of consonants in the name: 3.
-
-
