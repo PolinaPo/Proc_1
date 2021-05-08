@@ -9,4 +9,3 @@ Tree name: bereza,
 Tree age: 3.
 Tree name: klen,
 Tree age: 33.
-
