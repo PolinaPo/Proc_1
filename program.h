@@ -14,7 +14,7 @@ namespace type_plants {
 
 	// структура, обощающая все растения
 	struct plants {
-		enum type { TREE, BASH };
+		enum type { TREE, BUSH };
 		type key;
 		string name;
 		void* plants;
@@ -23,12 +23,12 @@ namespace type_plants {
 	plants* plants_Input(ifstream& ifst);
 	bool plants_Output(struct plants* plants, ofstream& ofst);
 
-	struct bash {
+	struct bush {
 		month m;
 	};
 
-	bash* bash_Input(ifstream& ifst);
-	void bash_Output(struct bash* bash, ofstream& ofst);
+	bush* bush_Input(ifstream& ifst);
+	void bush_Output(struct bush* bush, ofstream& ofst);
 
 	tree* tree_Input(ifstream& ifst);
 	void tree_Output(struct tree* tree, ofstream& ofst);
@@ -51,6 +51,8 @@ namespace type_plants {
 	bool node_Add(struct container* currentList, ifstream& ifst);
 	bool node_Output(struct node* headNode, int pos, ofstream& ofst);
 	struct node* get_node(struct node* head, int index);
+
+	void MultiMethod(struct container* list, ofstream& ofst);
 } // end type_plants namespace
 #endif // PROGRAM_H
 

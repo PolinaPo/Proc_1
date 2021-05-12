@@ -1,11 +1,98 @@
 Container contains 5 elements.
+
 Tree name: topol,
 Tree age: 456.
-Bash name: ryabina,
-Mounth: 5.
-Bash name: cheremuha,
-Mounth: 7.
+
+Bush name: ryabina,
+Month: 5.
+
+Bush name: cheremuha,
+Month: 7.
+
 Tree name: bereza,
 Tree age: 3.
+
+Tree name: klen,
+Tree age: 33.
+
+Multimethod.
+--------------
+Tree and Bush.
+
+Tree name: topol,
+Tree age: 456.
+
+Bush name: ryabina,
+Month: 5.
+--------------
+Tree and Bush.
+
+Tree name: topol,
+Tree age: 456.
+
+Bush name: cheremuha,
+Month: 7.
+--------------
+Tree and Tree.
+
+Tree name: topol,
+Tree age: 456.
+
+Tree name: bereza,
+Tree age: 3.
+--------------
+Tree and Tree.
+
+Tree name: topol,
+Tree age: 456.
+
+Tree name: klen,
+Tree age: 33.
+--------------
+Bush and Bush.
+
+Bush name: ryabina,
+Month: 5.
+
+Bush name: cheremuha,
+Month: 7.
+--------------
+Bush and Tree.
+
+Bush name: ryabina,
+Month: 5.
+
+Tree name: bereza,
+Tree age: 3.
+--------------
+Bush and Tree.
+
+Bush name: ryabina,
+Month: 5.
+
+Tree name: klen,
+Tree age: 33.
+--------------
+Bush and Tree.
+
+Bush name: cheremuha,
+Month: 7.
+
+Tree name: bereza,
+Tree age: 3.
+--------------
+Bush and Tree.
+
+Bush name: cheremuha,
+Month: 7.
+
+Tree name: klen,
+Tree age: 33.
+--------------
+Tree and Tree.
+
+Tree name: bereza,
+Tree age: 3.
+
 Tree name: klen,
 Tree age: 33.

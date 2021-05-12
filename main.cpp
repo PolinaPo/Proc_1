@@ -30,6 +30,10 @@ int main(int argc, char const* argv[])
     container_Output(c, ofst);
     cout << "Output container" << endl;
     ofst << endl;
+
+    MultiMethod(c, ofst);
+    cout << "Multimethod" << endl;
+
     container_Clear(c);
     cout << "Empty container" << endl;
     container_Output(c, ofst);
