@@ -162,7 +162,7 @@ namespace type_plants
 			break;
 		case 2:
 			newObj = new plants;
-			newObj->plants = bash_Input(ifst);
+			newObj->plants = bush_Input(ifst);
 			ifst >> newObj->name;
 			ifst >> place_plant;
 			// Проверка правильно введенного места произрастания (число от 0 до 5)
@@ -172,7 +172,7 @@ namespace type_plants
 				exit(1);
 			}
 			newObj->place_growth = place(place_plant);
-			newObj->key = plants::type::BASH;
+			newObj->key = plants::type::BUSH;
 			break;
 		case 3:
 			newObj = new plants;
@@ -203,11 +203,11 @@ namespace type_plants
 			tree_Output((tree *)plants->plants, ofst);
 			return true;
 		}
-		else if (plants->key == plants::type::BASH)
+		else if (plants->key == plants::type::BUSH)
 		{
-			ofst << "\nBash name: " << plants->name << "," << "\n"
+			ofst << "\nBush name: " << plants->name << "," << "\n"
 				 << "Place of growth: " << plants->place_growth + 1 << "," << endl;
-			bash_Output((bash *)plants->plants, ofst);
+			bush_Output((bush *)plants->plants, ofst);
 			return true;
 		}
 		else if (plants->key == plants::type::FLOWER)
@@ -224,9 +224,9 @@ namespace type_plants
 		}
 	}
 
-	bash *bash_Input(ifstream &ifst)
+	bush* bush_Input(ifstream &ifst)
 	{
-		bash *newObj = new bash();
+		bush*newObj = new bush();
 		int mnth;
 		ifst >> mnth;
 		// Проверка правильно введенного месяца цветения (число от 0 до 11)
@@ -239,9 +239,9 @@ namespace type_plants
 		return newObj;
 	}
 
-	void bash_Output(struct bash *bash, ofstream &ofst)
+	void bush_Output(struct bush* bush, ofstream &ofst)
 	{
-		ofst << "Mounth: " << bash->m + 1 << "," << endl;
+		ofst << "Month: " << bush->m + 1 << "," << endl;
 	}
 
 	flower *flower_Input(ifstream &ifst)
@@ -336,6 +336,93 @@ namespace type_plants
 			else
 			{
 				ofst << "";
+			}
+		}
+	}
+
+	void MultiMethod(struct container* list, ofstream& ofst) {
+		ofst << "Multimethod." << endl;
+		node* currentNode1;
+		node* currentNode2;
+		for (int i = 0; i < list->size - 1; i++) {
+			currentNode1 = list->head;
+			for (int p = 0; p < i; p++) {
+				currentNode1 = currentNode1->next;
+			}
+			currentNode2 = currentNode1->next;
+			for (int j = i + 1; j < list->size; j++) {
+				switch (currentNode1->info->key) {
+				case plants::type::TREE:
+					switch (currentNode2->info->key) {
+					case plants::type::TREE:
+						ofst << "--------------" << endl;
+						ofst << "Tree and Tree." << endl;
+						break;
+					case plants::type::BUSH:
+						ofst << "--------------" << endl;
+						ofst << "Tree and Bush." << endl;
+						break;
+					case plants::type::FLOWER:
+						ofst << "----------------" << endl;
+						ofst << "Tree and Flower." << endl;
+						break;
+					default:
+						ofst << "----------------------" << endl;
+						ofst << "Tree and Unknown type." << endl;
+						break;
+					}
+					currentNode2 = currentNode2->next;
+					break;
+				case plants::type::BUSH:
+					switch (currentNode2->info->key) {
+					case plants::type::TREE:
+						ofst << "--------------" << endl;
+						ofst << "Bush and Tree." << endl;
+						break;
+					case plants::type::BUSH:
+						ofst << "--------------" << endl;
+						ofst << "Bush and Bush." << endl;
+						break;
+					case plants::type::FLOWER:
+						ofst << "----------------" << endl;
+						ofst << "Bush and Flower." << endl;
+						break;
+					default:
+						ofst << "----------------------" << endl;
+						ofst << "Bush and Unknown type." << endl;
+						break;
+					}
+					currentNode2 = currentNode2->next;
+					break;
+				case plants::type::FLOWER:
+					switch (currentNode2->info->key) {
+					case plants::type::TREE:
+						ofst << "----------------" << endl;
+						ofst << "Flower and Tree." << endl;
+						break;
+					case plants::type::BUSH:
+						ofst << "----------------" << endl;
+						ofst << "Flower and Bush." << endl;
+						break;
+					case plants::type::FLOWER:
+						ofst << "------------------" << endl;
+						ofst << "Flower and Flower." << endl;
+						break;
+					default:
+						ofst << "------------------------" << endl;
+						ofst << "Flower and Unknown type." << endl;
+						break;
+					}
+					currentNode2 = currentNode2->next;
+					break;
+				default:
+					ofst << "Unknown type." << endl;
+					break;
+				}
+
+				node_Output(list->head, i, ofst);
+				node_Output(list->head, j, ofst);
+
 			}
 		}
 	}

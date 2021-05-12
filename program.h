@@ -21,7 +21,7 @@ namespace type_plants
 	// структура, обощающая все имеющиеся растения
 	struct plants
 	{
-		enum type { TREE, BASH, FLOWER };
+		enum type { TREE, BUSH, FLOWER };
 		type key;
 		string name;
 		place place_growth; 
@@ -31,7 +31,7 @@ namespace type_plants
 	plants *plants_Input(ifstream &ifst);
 	bool plants_Output(struct plants *plants, ofstream &ofst);
 
-	struct bash
+	struct bush
 	{
 		month m;
 	};
@@ -41,8 +41,8 @@ namespace type_plants
 		view flower_view;
 	};
 
-	bash *bash_Input(ifstream &ifst);
-	void bash_Output(struct bash *bash, ofstream &ofst);
+	bush* bush_Input(ifstream &ifst);
+	void bush_Output(struct bush* bush, ofstream &ofst);
 
 	tree *tree_Input(ifstream &ifst);
 	void tree_Output(struct tree *tree, ofstream &ofst);
@@ -81,6 +81,8 @@ namespace type_plants
 	void Sort(container *list);
 	// Cравнение ключей двух программных объектов
 	bool Compare(struct plants *first, struct plants *second);
+
+	void MultiMethod(struct container* list, ofstream& ofst);
 
 } // end type_plants namespace
 #endif // PROGRAM_H

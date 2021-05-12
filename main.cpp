@@ -50,8 +50,20 @@ int main(int argc, char const *argv[])
     container_Init(c);
     container_Fill(c, ifst);
     cout << "Filled container" << endl;
+
+    container_Output(c, ofst);
+    cout << "Output container" << endl;
+    ofst << endl;
+
+    MultiMethod(c, ofst);
+    cout << "Multimethod" << endl;
+    ofst << endl;
+
     Sort(c);
+    ofst << "\nSorted" << endl;
     cout << "Sorted container" << endl;
+    ofst << endl;
+
     container_Output(c, ofst);
     cout << "Output container" << endl;
     ofst << endl;
